@@ -47,16 +47,7 @@ btn.addEventListener("click",()=>{
 let recentBtn = document.querySelector(".recentBtn");
 let content = document.querySelector(".recentReport_container")
 let stateOff = true;
-recentBtn.addEventListener("click",()=>{
-    if(stateOff == true){
-        content.style.display ="flex"
-        stateOff = false;
-    }
-    else if(stateOff ==false){
-        content.style.display ="none"
-        stateOff = true;
-    }
-})
+
 var flag = 0;
 let reciverTitle = document.querySelectorAll(".rp_box_title");
 let reciverLocation = document.querySelectorAll(".rp_box_location");
@@ -86,6 +77,7 @@ let reciverDate = document.querySelectorAll(".rp_box_date");
             }
             let input = {
                 isDead: isDead,
+                activity: act,
                 location: document.getElementById('location').value,
                 date: _date,
                 desc: document.getElementById('desc').value,
@@ -108,33 +100,48 @@ let reciverDate = document.querySelectorAll(".rp_box_date");
             .catch(response => {
                 console.log("Error!");
             })
-            inputs.push(input);
+            // if (flag < reciverLocation.length-1){
+            //     flag++;
+            // }
+            //inputs.push(input);
             document.forms[0].reset(); // to clear the form for the next entries
             //document.querySelector('form').reset(); 
 
             //for display purposes only
-            addJSONtoRecent(inputs,flag);
-            if (flag < reciverLocation.length-1){
-                flag++;
-            }
+            
             //saving to localStorage
             //localStorage.setItem('UserInputs', JSON.stringify(inputs));
             
         }
 document.getElementById('button').addEventListener('click', addInput);
 
-
+recentBtn.addEventListener("click",()=>{
+    if(stateOff == true){
+        content.style.display ="flex"
+        stateOff = false;
+        fetch("http://10.1.168.53:3000/report")
+            .then((res) => res.json())
+            .then(json => {
+                console.log(json);
+                addJSONtoRecent(json);
+            })
+    }
+    else if(stateOff ==false){
+        content.style.display ="none"
+        stateOff = true;
+    }
+})
     
 
-function addJSONtoRecent(inputs,flag){
-    console.log(localStorage.getItem('UserInputs'))
-      let i =flag;
-    if(flag == reciverLocation.length){
-         i  = reciverLocation.length-1;
+function addJSONtoRecent(inputs){
+    // console.log(localStorage.getItem('UserInputs'))
+    let i = inputs.length-1;
+    while(i >= 0 && i <= reciverLocation.length){
+        reciverTitle[i].innerHTML = inputs[i].desc;
+        reciverLocation[i].innerHTML = `Location: ${inputs[i].location}`;
+        reciverDate[i].innerHTML = `Date: ${inputs[i].data}`;
+        i--;
     }
-        reciverTitle[i].innerHTML = inputs[flag].inp_activities ;
-        reciverLocation[i].innerHTML = `Location: ${inputs[flag].inp_location}`;
-        reciverDate[i].innerHTML = `Date: ${inputs[flag].inp_date}`;
 }
 
 
