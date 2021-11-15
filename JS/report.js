@@ -66,20 +66,48 @@ let reciverDate = document.querySelectorAll(".rp_box_date");
         // example {id:1592304983049, title: 'Deadpool', year: 2015}
         const addInput = (ev)=>{
             ev.preventDefault();  //to stop the form submitting
-            let input = {
-                id: Date.now(),
-                inp_activities: document.getElementById("inp_activities").value,
-                inp_name: document.getElementById('inp_name').value,
-                inp_number: document.getElementById('inp_number').value,
-                inp_email: document.getElementById('inp_email').value,
-                inp_location: document.getElementById('inp_location').value,
-                inp_date: document.getElementById('inp_date').value,
-                inp_description: document.getElementById('inp_description').value,
-                inp_link: document.getElementById('inp_link').value,
-                dot1: document.getElementById('dot-1').value,
-                dot2: document.getElementById('dot-2').value,
-                dot3: document.getElementById('dot-3').value,
+            let isAlive = document.getElementById('dot-1').checked ;
+            let isDead = true;
+            if(isAlive){
+                isDead = false;
             }
+            let _date = document.getElementById('date').value;
+            let newDate = new Date(_date).toString();
+            let act = document.getElementById('activity').value;
+            var _urgency;
+            if(act === "Locked in the slaughterhouse" || act === "Being delivered"){
+                _urgency = 2;
+            }
+            else if(act === "Traps/Hunters" || act === "Gathering trapped" || act === "Wildlife Product Storage"){
+                _urgency = 1;
+            }
+            else if(act == "Illegal captivity" || act === "Exotic Animals Meat" || act === "Wildlife Product Selling"){
+                _urgency = 0;
+            }
+            let input = {
+                isDead: isDead,
+                location: document.getElementById('location').value,
+                date: _date,
+                desc: document.getElementById('desc').value,
+                url: document.getElementById('url').value,
+                contact:{
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    
+                    phone: document.getElementById('phone').value,
+                },
+                urgency: _urgency
+            }
+            fetch("http://10.1.168.53:3000/report",{
+                method: "POST", 
+                headers: {
+                    'Content-Type': 'application/JSON',
+                },
+                body: JSON.stringify(input)
+            })
+            .catch(response => {
+                console.log("Error!");
+            })
             inputs.push(input);
             document.forms[0].reset(); // to clear the form for the next entries
             //document.querySelector('form').reset();
@@ -90,7 +118,8 @@ let reciverDate = document.querySelectorAll(".rp_box_date");
                 flag++;
             }
             //saving to localStorage
-            localStorage.setItem('UserInputs', JSON.stringify(inputs));
+            //localStorage.setItem('UserInputs', JSON.stringify(inputs));
+            
         }
 document.getElementById('button').addEventListener('click', addInput);
 
