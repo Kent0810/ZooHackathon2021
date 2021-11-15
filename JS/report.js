@@ -134,13 +134,14 @@ recentBtn.addEventListener("click",()=>{
     
 
 function addJSONtoRecent(inputs){
-    // console.log(localStorage.getItem('UserInputs'))
     let i = inputs.length-1;
-    while(i >= 0 && i <= reciverLocation.length){
-        reciverTitle[i].innerHTML = inputs[i].desc;
-        reciverLocation[i].innerHTML = `Location: ${inputs[i].location}`;
-        reciverDate[i].innerHTML = `Date: ${inputs[i].data}`;
+    let count = 0;
+    while(count < reciverLocation.length && i >= 0){
+        reciverTitle[count].innerHTML = inputs[i].desc;
+        reciverLocation[count].innerHTML = `Location: ${inputs[i].location}`;
+        reciverDate[count].innerHTML = `Date: ${inputs[i].data}`;
         i--;
+        count++;
     }
 }
 
