@@ -82,7 +82,7 @@ let reciverDate = document.querySelectorAll(".rp_box_date");
             }
             inputs.push(input);
             document.forms[0].reset(); // to clear the form for the next entries
-            //document.querySelector('form').reset();
+            //document.querySelector('form').reset(); 
 
             //for display purposes only
             addJSONtoRecent(inputs,flag);
@@ -98,7 +98,7 @@ document.getElementById('button').addEventListener('click', addInput);
     
 
 function addJSONtoRecent(inputs,flag){
-    console.log(inputs)
+    console.log(localStorage.getItem('UserInputs'))
       let i =flag;
     if(flag == reciverLocation.length){
          i  = reciverLocation.length-1;
