@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./animation.css">
+    <link rel="stylesheet" href="./mediaQuery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="./report.css">
+    <script src="https://kit.fontawesome.com/4eea540a2f.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="transition transition-2 is-active rptransition"></div>
+    <section class="showcase shcase">
+        <header>
+            <h2 class="logo">#TEAMWILDLIFE</h2>
+            <ul class="infromation">
+                <li><a href="./index.html">Main Menu</a></li>
+                <li><a href="#">Report To Us</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="toggle"><i class="fas fa-bars"></i></div>
+        </header>
+        <div class="sidebar">
+            <header>
+                <i class="fas fa-chevron-right"></i>
+                <a class="title" href="./index.html">Main Menu</a>
+                <a class="title" href="#">Report To Us</a>
+                <a class="title" href="./contact.html">Contact</a>
+            </header>
+        </div>
+        <video src="./Video/videoplayback_4.mp4" muted loop autoplay></video>
+        <div class="overlay"></div>
+        <div class="report-container">
+            <div class="container">
+                <div class="content">
+                    <div class="title">Please Fill In Information For The Form Belows</div>
+                    <div class="content">
+                        <form class="form" id="myForm2">
+                            <div class="gender-details">
+                                <input type="radio" name="status" id="dot-1">
+                                <input type="radio" name="status" id="dot-2">
+                                <input type="radio" name="status" id="dot-3">
+                                <span class="gender-title">State Of The Wild Animals?</span>
+                                <div class="category">
+                                    <label for="dot-1">
+                                        <span class="dot one"></span>
+                                        <span class="state">Alive</span>
+                                    </label>
+                                    <label for="dot-2">
+                                        <span class="dot two"></span>
+                                        <span class="state">Death</span>
+                                    </label>
+                                    <label for="dot-3">
+                                        <span class="dot three"></span>
+                                        <span class="state">Uncertain</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="user-details">
+                               <div class="input-box">
+                                    <span class="details">Activities</span>
+                                    <select  name="inp_activities" id="inp_activities" class="input" >
+                                        <option id="inp_alive" >Traps/Hunters</option>
+                                        <option id="inp_alive" >Locked in the slaughterhouse</option>
+                                        <option id="inp_alive" >Illegal captivity</option>
+                                        <option id="inp_alive" >Gatherring trapped</option>
+                                        <option id="inp_death" >Being delivered</option>
+                                        <option id="inp_death" >Exotic Animals Meat</option>
+                                    </select>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Location That You Find This</span>
+                                    <input type="text" class="input" name="inp_location" id="inp_location" placeholder="Enter The Location">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Date When You Last Seen</span>
+                                    <input type="date" class="input" name="inp_date" id="inp_date" required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Description</span>
+                                    <input type="text" class="input" name="inp_description" id="inp_description" placeholder="Give Us Some Description"
+                                        required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Full Name</span>
+                                    <input type="text" class="input" name="inp_name" id="inp_name" placeholder="Enter your name"
+                                        required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Phone Number</span>
+                                    <input type="text" class="input" name="inp_number" id="inp_number"
+                                        placeholder="Enter your number">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Email</span>
+                                    <input type="text" class="input" name="inp_email" id="inp_email" placeholder="Enter your email">
+                                </div>
+                               
+                                <div class="input-box">
+                                    <span class="details">If You Found it On The Internet, Please Give Us the Link</span>
+                                    <input type="text" class="input" name="inp_link" id="inp_link"
+                                        placeholder="Ex: https://example.com">
+                                </div>
+                            </div>
+                            <div class="setOfBtn">
+                                <div class="button">
+                                    <input type="submit" id="button" value="Sent">
+                                </div>
+                                <button type="button" class="recentBtn">
+                                    Recent Report !
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <h1 style="color: #6990f2;;">If You Have Any Images, Please Submits It Here</h1>
+                    <form class="form" id="myForm">
+                        <input type="file" id="inpFile" required>
+                        <label class="fileLabel" for="inpFile">
+                            Upload Your Image Here!
+                            <button id="submit" type="submit">Submit Now</button>
+                            <label class="submitLabel" for="submit">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </label>
+                        </label>
+                    </form>
+                    <div class="fileName"></div>
+                </div>
+                <div class="recentReport_container" style="color: black;">
+                    <div class="rp_box top1">
+                        <div class="avatar">
+                            !
+                        </div>
+                        <div class="rp_info">
+                            <h1 class="rp_box_title"> </h1>
+                            <h2 class="rp_box_location"> </h2>
+                            <h2 class="rp_box_date"></h2>
+                        </div>
+                    </div>
+                    <div class="rp_box top2">
+                        <div class="avatar">
+                            !
+                        </div>
+                        <div class="rp_info">
+                            <h1 class="rp_box_title"> </h1>
+                            <h2 class="rp_box_location"> </h2>
+                            <h2 class="rp_box_date"></h2>
+                        </div>
+                    </div>
+                    <div class="rp_box top3">
+                        <div class="avatar">
+                            !
+                        </div>
+                        <div class="rp_info">
+                            <h1 class="rp_box_title"> </h1>
+                            <h2 class="rp_box_location"> </h2>
+                            <h2 class="rp_box_date"></h2>
+                        </div>
+                    </div>
+                    <div class="rp_box top4">
+                        <div class="avatar">
+                            !
+                        </div>
+                        <div class="rp_info">
+                            <h1 class="rp_box_title"> </h1>
+                            <h2 class="rp_box_location"> </h2>
+                            <h2 class="rp_box_date"></h2>
+                        </div>
+                    </div>
+                    <div class="rp_box top5">
+                        <div class="avatar">
+                            !
+                        </div>
+                        <div class="rp_info">
+                            <h1 class="rp_box_title"> </h1>
+                            <h2 class="rp_box_location"> </h2>
+                            <h2 class="rp_box_date"></h2>
+                        </div>
+                    </div>
+                    <div class="rp_box top6">
+                        <div class="avatar">
+                            !
+                        </div>
+                        <div class="rp_info">
+                            <h1 class="rp_box_title"> </h1>
+                            <h2 class="rp_box_location"> </h2>
+                            <h2 class="rp_box_date"></h2>
+                        </div>
+                    </div>
+                    <div class="rp_box top7">
+                        <div class="avatar">
+                            !
+                        </div>
+                        <div class="rp_info">
+                            <h1 class="rp_box_title"> </h1>
+                            <h2 class="rp_box_location"> </h2>
+                            <h2 class="rp_box_date"></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+        
+    </section>
+
+    
+</body>
+<script src="./JS/report.js"></script>
+
+</html>

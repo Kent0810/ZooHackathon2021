@@ -1,0 +1,101 @@
+@media screen and (max-width: 700px) {
+  .rp_title {
+    margin-top: 100px;
+  }
+  .infromation {
+    display: none;
+  }
+  .showcase {
+    padding: 30px;
+  }
+  .text {
+    line-height: 1;
+  }
+  .text h2 {
+    font-size: 1.5rem;
+  }
+  .text h3 {
+    font-size: 1.2rem;
+  }
+  .text p {
+    font-size: 1rem;
+
+    font-weight: 400;
+    max-width: 400px;
+  }
+  .btn {
+    display: inline-block;
+    font-size: 1rem;
+    background: #fff;
+    padding: 5px 20px;
+    color: #111;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .showcase video {
+    object-fit: cover;
+  }
+}
+@media (max-width: 790px) {
+  .wrapper .center-line {
+    left: 40px;
+  }
+  .wrapper .row {
+    margin: 30px 0 3px 60px;
+  }
+  .wrapper .row section {
+    width: 100%;
+  }
+  .row-1 section::before {
+    left: -7px;
+  }
+  .row-1 section .icon {
+    left: -60px;
+  }
+  .flip-card-back p {
+    font-size: 0.8rem;
+  }
+  .rp_box_title {
+    max-width: 20%;
+  }
+}
+@media (max-width: 440px) {
+  .wrapper .center-line,
+  .row section::before,
+  .row section .icon {
+    display: none;
+  }
+  .wrapper .row {
+    margin: 10px 0;
+  }
+  .fa-bars {
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 700px) {
+  .toggle,
+  .sidebar {
+    display: none;
+  }
+
+  .about-us {
+    background-image: url(./Image/bg2.png);
+    background-size: contain;
+  }
+  .report {
+    background-attachment: fixed;
+  }
+}
+@media screen and (max-width: 321px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+  .text {
+    margin-top: 100px;
+  }
+}
